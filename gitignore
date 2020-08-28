@@ -1,2 +1,5 @@
-.pytest_cache
-__pycache__
+# Ignore files and folders
+.gitignore
+.pytest_cache/
+__pycache__/
+pages/__pycache__/
