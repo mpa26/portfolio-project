@@ -1,5 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
+from selenium.webdriver import Remote
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import math
@@ -21,7 +22,7 @@ class BasePage():
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
-        except (NoSuchElementException):  # Имя исключения
+        except NoSuchElementException:  # Имя исключения
             return False
         return True
 
