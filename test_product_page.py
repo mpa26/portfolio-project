@@ -13,7 +13,7 @@ urls = [f"{product_base_link}/?promo=offer{no}" for no in range(10)]
 '''
 
 
-@pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
+'''@pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer3",
@@ -33,4 +33,35 @@ def test_guest_can_add_product_to_basket(browser, link):
     # Проверить сообщение о добавлении товара в корзину, сравнить название и цену.
     product_page.solve_quiz_and_get_code()
     product_page.should_be_present_in_cart()
-    product_page.should_check_product_cost()
+    product_page.should_check_product_cost()'''
+
+
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.add_to_basket_page()
+    product_page.should_not_be_success_message()
+
+
+def test_guest_cant_see_success_message_before_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.should_not_be_success_message()
+
+
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.add_to_basket_page()
+    product_page.should_not_be_success_message2()
+
+
+
+
+
+
+
+

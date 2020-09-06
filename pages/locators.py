@@ -21,3 +21,4 @@ class ProductPageLocators():
     PRICE_VALUE = (By.CLASS_NAME, "price_color")
     PRODUCT_NAME = (By.TAG_NAME, "h1")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "p.price_color")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alertinner strong")
